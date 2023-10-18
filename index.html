@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Convertor</title>
+
+
+</head>
+<style>
+    body {
+        padding: 50px 100px;
+        background-color: aquamarine;
+    }
+
+    h1 {
+        text-align: center;
+        font-weight: bold;
+        font-family: cursive;
+    }
+
+    #container {
+        text-align: center;
+        background-color: antiquewhite;
+        padding: 50px;
+        border: 10px solid black;
+    }
+
+    .input-div {
+        display: inline-block;
+    }
+
+    .inp {
+        padding: 5px 10px;
+        margin: 10px;
+        font-size: 30px;
+        font-weight: bolder;
+        width: 250px;
+        text-align: center;
+    }
+
+    img {
+        width: 100%;
+        height: 100%;
+    }
+
+    label {
+        font-size: 22px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    }
+</style>
+
+<body>
+    <h1>Temperature Convertor</h1>
+
+
+    <div id="container">
+        <img src="Temperature.jpg">
+
+        <div class="input-div">
+            <label>Celsius</label>
+            <input type="number" value="0" id="cel" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Fahrenheit</label>
+            <input type="numnber" value="32" id="fah" class="inp">
+        </div>
+        <div class="input-div">
+            <label>Kelvin</label>
+            <input type="number" value="273.15" id="kel" class="inp">
+        </div>
+
+    </div>
+    <script>
+        var cel = document.getElementById("cel");
+        var fah = document.getElementById("fah");
+        var kel = document.getElementById("kel");
+
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let f = (c * 9 / 5) + 32;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4);
+            }
+            fah.value = f;
+
+        });
+        cel.addEventListener('input', function () {
+            let c = this.value;
+            let k = (parseFloat(c)) + 273.15;
+            if (!Number.isInteger(k)) {
+                k = k.toFixed(4);
+            }
+            kel.value = k;
+
+        });
+
+        kel.addEventListener('input', function () {
+            let k = this.value;
+            let c = (parseFloat(k)) - 273.15;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4);
+            }
+            c.value = c;
+
+        });
+
+
+
+
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let c = (f - 32) * 5 / 9;
+            if (!Number.isInteger(c)) {
+                c = c.toFixed(4);
+
+            }
+            cel.value = c;
+
+        });
+        fah.addEventListener('input', function () {
+            let f = this.value;
+            let k = (parseFloat(f - 32) * 5 / 9) + 273.15;
+            if (!Number.isInteger(k)) {
+                k = k.toFixed(4);
+
+            }
+            kel.value = k;
+
+        });
+        kel.addEventListener('input', function () {
+            let k = this.value;
+            let f = (parseFloat((k - 273.15) * 9 / 5)) + 32;
+            if (!Number.isInteger(f)) {
+                f = f.toFixed(4);
+
+            }
+            fah.value = f;
+
+        });
+
+
+    </script>
+
+</body>
+
+</html>
